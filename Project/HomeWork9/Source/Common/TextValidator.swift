@@ -27,14 +27,34 @@ class TextValidator {
             override func validate(text: String) -> String? {
                 if let error = super.validate(text: text) {
                     return error
+                    
                 }
                 
                 if text.count > 30 {
                     return "Кількість символів має бути не менше 30"
+                    
                 }
                 
                 return nil
+                
+                
+                class PassworValidator: TextValidator {
+                    
+                    override func validate(text: String) -> String? {
+                        if let error = super.validate(text: text)   {
+                            return error
+                        }
+                        if text.count > 16 {
+                            return "Кількість символів має бути не менше 16"
+                            
+                        }
+                        
+                        return nil
+                    }
+                    
+                }
             }
         }
     }
+    
 }
